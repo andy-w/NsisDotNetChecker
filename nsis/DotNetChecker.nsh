@@ -2,6 +2,8 @@
 	Var /GLOBAL dotNetUrl
 	Var /GLOBAL dotNetReadableVersion
 
+	!define DOTNET461_URL	 	"http://go.microsoft.com/fwlink/?LinkId=671744"
+	!define DOTNET46_URL	 	"http://go.microsoft.com/fwlink/?LinkId=528233"
 	!define DOTNET452_URL	 	"http://go.microsoft.com/fwlink/?LinkId=397708"
 	!define DOTNET451_URL 		"http://go.microsoft.com/fwlink/?LinkId=322116"
 	!define DOTNET45_URL 	    	"http://go.microsoft.com/fwlink/?LinkId=225702"
@@ -13,7 +15,13 @@
 	!define DOTNET11_URL		"http://www.microsoft.com/downloads/info.aspx?na=41&srcfamilyid=262d25e3-f589-4842-8157-034d1e7cf3a3&srcdisplaylang=en&u=http%3a%2f%2fdownload.microsoft.com%2fdownload%2fa%2fa%2fc%2faac39226-8825-44ce-90e3-bf8203e74006%2fdotnetfx.exe"
 	!define DOTNET10_URL		"http://www.microsoft.com/downloads/info.aspx?na=41&srcfamilyid=262d25e3-f589-4842-8157-034d1e7cf3a3&srcdisplaylang=en&u=http%3a%2f%2fdownload.microsoft.com%2fdownload%2fa%2fa%2fc%2faac39226-8825-44ce-90e3-bf8203e74006%2fdotnetfx.exe"
 
-	${If} ${FrameworkVersion} == "452"
+	${If} ${FrameworkVersion} == "461"
+		StrCpy $dotNetUrl ${DOTNET46_URL}
+		StrCpy $dotNetReadableVersion "4.61"
+	${ElseIf} ${FrameworkVersion} == "461"
+		StrCpy $dotNetUrl ${DOTNET46_URL}
+		StrCpy $dotNetReadableVersion "4.6"
+	${ElseIf} ${FrameworkVersion} == "452"
 		StrCpy $dotNetUrl ${DOTNET452_URL}
 		StrCpy $dotNetReadableVersion "4.52"
 	${ElseIf} ${FrameworkVersion} == "451"
